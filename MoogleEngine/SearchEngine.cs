@@ -9,12 +9,13 @@ namespace MoogleEngine;
 
 
     // Clase q representa el buscador 
-    class SearchEngine
+    public class SearchEngine
     {
         private readonly IDictionary<string, int> _documentFrequencies = new Dictionary<string, int>();
         private readonly IList<Document> _documents = new List<Document>();
+        private string directoryPath = @"/Applications/XAMPP/xamppfiles/htdocs/moogle/candela";
 
-        public SearchEngine(string directoryPath)
+        public SearchEngine()
         {
             //Cargar los documentos del directorio
             foreach (var filePath in Directory.EnumerateFiles(directoryPath))
@@ -76,22 +77,67 @@ namespace MoogleEngine;
         // crear una lista con todas las palabras del query 
         var queryWords = new HashSet<string>(query.Split());
 
-        // Calcular los scores para cada posible sugerencia 
-        var suggestions = new Dictionary<string, double>();
-        foreach (var result in results)
+    // Calcular la distacnia de levenshtein para cada posible sugerencia
+    var suggestions = new Dictionary<string, int>();
+    foreach (var result in results)
+    {
+        var words = result.Snippet.Split().Select(word => word.TrimEnd(',', '.', ';', ':')).Distinct();
+        foreach (var word in words)
         {
-            var words = result.Snippet.Split().Select(word => word.TrimEnd(',', '.', ';', ':')).Distinct();
-            foreach (var word in words)
+            if (!queryWords.Contains(word))
             {
-                if (!queryWords.Contains(word))
-                {
-                    var score = _documentFrequencies.ContainsKey(word) ? _documentFrequencies[word] : 1;
-                    suggestions[word] = suggestions.ContainsKey(word) ? suggestions[word] + score : score;
-                }
+                var distance = LevenshteinDistance.Compute(query, word);
+                suggestions[word] = distance;
+            }
+        }
+    }
+
+    // retornar la sugerencia con la menor distancia
+    return suggestions.OrderBy(kvp => kvp.Value).FirstOrDefault().Key;
+        
+    }
+}
+
+public static class LevenshteinDistance
+{
+    public static int Compute(string s, string t)
+    {
+        if (string.IsNullOrEmpty(s))
+        {
+            return string.IsNullOrEmpty(t) ? 0 : t.Length;
+        }
+
+        if (string.IsNullOrEmpty(t))
+        {
+            return s.Length;
+        }
+
+        var n = s.Length;
+        var m = t.Length;
+        var d = new int[n + 1, m + 1];
+
+        for (var i = 0; i <= n; i++)
+        {
+            d[i, 0] = i;
+        }
+
+        for (var j = 0; j <= m; j++)
+        {
+            d[0, j] = j;
+        }
+
+        for (var j = 1; j <= m; j++)
+        {
+            for (var i = 1; i <= n; i++)
+            {
+                var cost = (s[i - 1] == t[j - 1]) ? 0 : 1;
+                d[i, j] = Math.Min(Math.Min(
+                    d[i - 1, j] + 1,
+                    d[i, j - 1] + 1),
+                    d[i - 1, j - 1] + cost);
             }
         }
 
-        // Retorna la sugerencia con mayor score 
-        return suggestions.OrderByDescending(kvp => kvp.Value).FirstOrDefault().Key;
+        return d[n, m];
     }
 }

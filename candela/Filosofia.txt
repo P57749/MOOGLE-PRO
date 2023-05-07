@@ -1,0 +1,19 @@
+El legado del Renacimiento fue poner ante los ojos del mundo intelectual la perfeccion epistemologica de la ciencia matematica, mediante la minuciosa y paciente 
+recuperacion de la obra de los grandes geometras de la antiguedad y los admirables creaciones de los algebristas italianos y alemanes. Por ende, cuando los filosoficos
+en el siglo XVII, tratan de recuperar la filosofia como ciencia suprema de la razon, los filosofos se fijen en la matematica.
+
+Descartes recuerda en el "Discours" la admiracion q le causaba la claridad y certeza de las razones matematicas y de desencanto q le causaban los esfuerzos de filosofos
+por llegar a algun acuerdo, para el era preciso aproximar el saber filosofico al matematico para la filosofia no seria verdadera ciencia si no tenia los mismos fundamentos
+de la matematica. El matematicismo de Descartes es solo epistemologico, la matematica constituye para el un caso superlativo la formulacion cientifica, no un organon,
+una tecnica logica fructifera para la investigacion cientifica, otros aspectos como la cuantificacion, el algoritmo o el calculo los descarta sin titubeos a la hora
+de construir una filosofia<<matematica>>,por el sencillo motivo de q no todos los objetos estudiados por el filosofo son cuantificables y calculables. Descartes llega a
+formular una fisica empleando solo conceptos calcados de los conceptos matematicos y a despecho de toda su fisica es incapaz de propiciar una sola prediccion exacta.
+
+Isaac Newton dio un nuevo sentido al estudio matematico de la realidad, rompiendo con el aislamiento en q se encontraba la matematica aplicada. Ademas, supo conjugar y
+sintetizar 2 lineas matrices de la ciencia moderna: la matematica-especulativa y la empirico-inductivista. Newton nombra pocas veces a Descartes, pero sin duda lo conoce
+y ha estudiado y dedica bastantes apartados de sus escritos a refuta su sistema. En esta confrontacion, es significativa la diferente imagen de la ciencia de la q cada 
+cual parte. Frente al matematicismo puramente epistemologico de Descartes, Newton trata de instrumentalizar la razon matematica para convertirla en una pura mediacion 
+formal subordinada a los fines especificos del investigador. Ya puede considerarse la matematica como un modelo exhaustivo de los elementos y dinamismo de cualquier 
+tipo de elaboracion teorica. Quizas no se puede encontrar una muestra mas clara de actitud newtoniana q el hecho de q se tomara la molestia de retraducir en los 
+"Principia" a razonamientos geometricos y algebraicos convencionales los resultados q solo puedo obtener mediante la tecnica del calculo de fluxiones desarrollada por el.
+La obra de Newton condujo a plantear el problema de la demarcacion de los limites de las diversas ciencias, desde un punto excluyente opcion metodologica.
