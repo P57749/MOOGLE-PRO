@@ -4,7 +4,7 @@ public class SearchResult
 {
     private SearchItem[] items;
 
-    public SearchResult(SearchItem[] items, string suggestion="")
+    public SearchResult(SearchItem[] items, string suggestion = " ")
     {
 
         if (items == null) {

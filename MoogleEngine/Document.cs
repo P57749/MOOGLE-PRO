@@ -54,7 +54,9 @@ namespace MoogleEngine;
         // metodo para eliminar todos los signos diacriticos de un string
         public static string RemoveDiacritics(string text)
         {
-            var bytes = Encoding.GetEncoding("UTF-8").GetBytes(text);
+            string texto = text.ToLower();
+            var bytes = Encoding.GetEncoding("UTF-8").GetBytes(texto);
             return Encoding.ASCII.GetString(bytes);
+            //return texto;
         }
     }

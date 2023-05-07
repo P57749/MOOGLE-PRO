@@ -23,7 +23,7 @@ namespace MoogleEngine;
                 var title = Path.GetFileNameWithoutExtension(filePath);
                 _documents.Add(new Document(title, text));
 
-                // Actualizar la frecuancia del documento para cada palablra 
+                // Actualizar la frecuencia del documento para cada palabra 
                 foreach (var word in text.Split().Distinct())
                 {
                     if (!_documentFrequencies.ContainsKey(word))
@@ -34,7 +34,7 @@ namespace MoogleEngine;
                 }
             }
         }
-        // Metodo para realizar una busqueda y retornar una lista con los resultados de la busqueda
+        // Método para realizar una búsqueda y retornar una lista con los resultados de la búsqueda
     public IList<SearchItem> Search(string query)
     {
         // Eliminar los signos diacriticos del query 
@@ -54,26 +54,29 @@ namespace MoogleEngine;
             scores[document] = score;
         }
 
-        // Almacenar los documentos por score y generar el  resultado de la busqueda
+        // Almacenar los documentos por score y generar el  resultado de la búsqueda
         var results = new List<SearchItem>();
         foreach (var kvp in scores.OrderByDescending(kvp => kvp.Value))
         {
+            if (kvp.Value != 0)
+            {
             var document = kvp.Key;
             var score = kvp.Value;
             var snippet = document.GenerateSnippet(query);
             results.Add(new SearchItem(document.Title, snippet, (float)score));
+            }
 
         }
         return results;
     }
 
-    // Metodo para sugerir la mejor sugernecia basada en los resulatdos de la busqueda
+    // Método para sugerir la mejor sugerencia basada en los resultados de la búsqueda
     public string Suggest(string query, IList<SearchItem> results)
     {
-        // genrar una lista con todas las palabras del query 
+        // crear una lista con todas las palabras del query 
         var queryWords = new HashSet<string>(query.Split());
 
-        // Calacular los scores para cada posible sugerencia 
+        // Calcular los scores para cada posible sugerencia 
         var suggestions = new Dictionary<string, double>();
         foreach (var result in results)
         {
