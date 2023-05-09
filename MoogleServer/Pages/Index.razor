@@ -10,9 +10,12 @@
 
 @if (!string.IsNullOrEmpty(result.Suggestion)) {
     <div class="suggestion">
-        <p>¿Quizás quisite decir <strong><a href="#">@result.Suggestion</a></strong>?</p>
+        <p>¿Quisite decir <strong><a href="#">@result.Suggestion</a></strong>?</p>
     </div>
 }
+
+
+
 
 <ul class="results">
 @foreach (var item in result.Items()) {
@@ -24,6 +27,12 @@
     </li>
 }
 </ul>
+
+
+
+
+
+
 
 @code {
     private string query = "";

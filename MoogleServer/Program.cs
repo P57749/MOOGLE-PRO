@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-
+// esto es para crear todo y q sea solo usar el query para calcular todo y mostrar 
 MoogleEngine.Moogle.Iniciar();
 
 var builder = WebApplication.CreateBuilder(args);

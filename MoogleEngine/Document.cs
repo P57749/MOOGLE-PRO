@@ -24,7 +24,7 @@ namespace MoogleEngine;
         public double CalculateTfIdf(string word, IDictionary<string, int> documentFrequencies, int numDocuments)
         {
             var tf = (double)CountOccurrences(Text, word) / Text.Split().Length;
-            var idf = Math.Log((double)numDocuments / documentFrequencies[word]);
+            double idf = Math.Log((double)numDocuments / documentFrequencies[word]);
             return tf * idf;
         }
 
@@ -55,8 +55,6 @@ namespace MoogleEngine;
         public static string RemoveDiacritics(string text)
         {
             string texto = text.ToLower();
-            var bytes = Encoding.GetEncoding("UTF-8").GetBytes(texto);
-            return Encoding.ASCII.GetString(bytes);
-            //return texto;
+            return texto;
         }
     }
